@@ -1,25 +1,40 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import Card from '../components/Card.astro';
 import Header from '../components/Header.astro';
-import '../styles/global.css'
-import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/global.css';
+import Footer from '../components/Footer.astro';
 
-const pageTitle = "Home Page";
+const pageTitle = "About Me";
+const identity = {
+  firstName: "Campbell",
+  country: "USA",
+  occupation: "Software Developer",
+  hobbies: ["art", "singing", "music composition"],
+};
+
+const skills = ["C#", "CSS", "C++", "Unity", "Godot", "Python", "Agile", "SCRUM", "SQL"];
 ---
 
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout title={pageTitle}>
 	<main>
 
-		<h1>Welcome to my corner of the internet</h1>
+		<title>{pageTitle}</title>
+		<style>
+			h2{
+				
+				font-size: 4rem;
+			}
+		</style>
 		
-		<img width="300" height="400" src="/Self-Portrait-1.png" alt="a self portrait">
-        <p>
-			From a young age I've always loved the feeling of creating things. Putting together small parts and making them work together has always been a magical, satisfying experience, whether 
-            that be turning lines of code into a program or taking disparate mechanics and turning them into a fun game. I am 
-            looking to use my passion and collected knowledge to work on software and video games.
+        <p>   
+            My skills are:
+			<ul>
+  				{skills.map((skill) => <li class="skill">{skill}</li>)}
+			</ul>
         </p>
-		
+		</p>
 		<script>
 			import '../scripts/menu.js'
 		  </script>
@@ -29,11 +44,15 @@ const pageTitle = "Home Page";
 <style>
 	main {
 		margin: auto;
-		padding: 1%;
+		padding: 1rem;
 		width: 800px;
-		max-width: calc(100% - 1%);
+		max-width: calc(100% - 2rem);
 		font-size: 20px;
 		line-height: 1.6;
+	}
+	img {
+    float:left;
+	padding: 2%;
 	}
 	.astro-a {
 		position: absolute;
@@ -51,10 +70,6 @@ const pageTitle = "Home Page";
 		text-align: center;
 		margin-bottom: 1em;
 	}
-	img {
-    float:left;
-	padding: 2%;
-	}
 	.text-gradient {
 		background-image: var(--accent-gradient);
 		-webkit-background-clip: text;
@@ -65,7 +80,7 @@ const pageTitle = "Home Page";
 	.instructions {
 		margin-bottom: 2rem;
 		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
+		background: rgba(var(--accent-light), 12%);
 		padding: 1.5rem;
 		border-radius: 8px;
 	}
@@ -86,4 +101,11 @@ const pageTitle = "Home Page";
 		gap: 2rem;
 		padding: 0;
 	}
+    .indented-paragraph{
+        width: 500px;
+        max-width: calc(100% - 3rem);
+		position: relative;
+		left: 20rem;
+    }
+
 </style>

@@ -1,0 +1,106 @@
+.hamburger {
+    padding-right: 20px;
+    cursor: pointer;
+  }
+  
+  .hamburger .line {
+    display: block;
+    width: 40px;
+    height: 5px;
+    margin-bottom: 10px;
+    background-color: rgb(228, 157, 126);
+  }
+html {
+    background-color:rgb(54, 35, 12);
+    font-family: sans-serif;
+  }
+  
+  body {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 80ch;
+    color: rgb(255, 255, 238);
+    padding: 1rem;
+    line-height: 1.5;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  h2 {
+    margin: 1rem 0;
+    font-size: 2.5rem;
+    color: rgb(228, 157, 126);
+  }
+
+  /*Cards*/
+  .card {
+    
+    background-size: 300%;
+    padding-left: 20px;
+  }
+  .link-card-grid{
+    display: grid;
+    grid-template: 
+    "link-card link-card";
+    grid-template-columns: 22rem;
+    padding-left: -200em;
+    padding: 0;
+  }
+  .card-img{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width:40%; 
+  }
+
+  /* nav styles */
+
+.nav-links {
+    width: 100%;
+    top: 5rem;
+    color: rgb(255, 255, 238);
+    display: none;
+    text-align: center;
+    
+  }
+  
+  .nav-links a {
+    display: flexbox;
+    text-align: center;
+    margin:auto;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: rgb(255, 255, 238);
+  }
+  
+  .nav-links a:hover,
+  .nav-links a:focus {
+    color: rgb(228, 157, 126);
+  }
+  
+  .expanded {
+    display: unset;
+  }
+  
+  @media screen and (min-width: 636px) {
+    .nav-links {
+      margin-left: 5em;
+      display: block;
+      position: static;
+      width: auto;
+      background: none;
+    }
+  
+    .nav-links a {
+      display: inline-block;
+      padding: 15px 20px;
+    }
+  
+    .hamburger {
+        display: none;
+      }
+  }

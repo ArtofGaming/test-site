@@ -1,37 +1,41 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import Card from '../components/Card.astro';
 import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import '../styles/global.css'
-import BaseLayout from '../layouts/BaseLayout.astro';
 
-const pageTitle = "Home Page";
+const pageTitle = "Portfolio";
+const allWorks = await Astro.glob('./works/*.md');
 ---
 
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout title={pageTitle}>
 	<main>
+        <p>This is where I keep my best projects.</p>
+		
+		<ul role="list" class="link-card-grid">
+			{allWorks.map((card) => <Card
+			title={card.frontmatter.title}
+			body={card.frontmatter.description}
+			href={`works/${card.frontmatter.title}`}`
+			image={card.frontmatter.image.url}
+			/>)}
+		</ul>
 
-		<h1>Welcome to my corner of the internet</h1>
-		
-		<img width="300" height="400" src="/Self-Portrait-1.png" alt="a self portrait">
-        <p>
-			From a young age I've always loved the feeling of creating things. Putting together small parts and making them work together has always been a magical, satisfying experience, whether 
-            that be turning lines of code into a program or taking disparate mechanics and turning them into a fun game. I am 
-            looking to use my passion and collected knowledge to work on software and video games.
-        </p>
-		
-		<script>
-			import '../scripts/menu.js'
-		  </script>
+		  <script>
+			  import '../scripts/menu.js'
+			</script>
 	</main>
 </BaseLayout>
 
 <style>
 	main {
 		margin: auto;
-		padding: 1%;
+		padding: 1rem;
 		width: 800px;
-		max-width: calc(100% - 1%);
+		max-width: calc(100% - 2rem);
+		color: white;
 		font-size: 20px;
 		line-height: 1.6;
 	}
@@ -50,10 +54,6 @@ const pageTitle = "Home Page";
 		line-height: 1;
 		text-align: center;
 		margin-bottom: 1em;
-	}
-	img {
-    float:left;
-	padding: 2%;
 	}
 	.text-gradient {
 		background-image: var(--accent-gradient);
@@ -86,4 +86,11 @@ const pageTitle = "Home Page";
 		gap: 2rem;
 		padding: 0;
 	}
+    .indented-paragraph{
+        width: 500px;
+        max-width: calc(100% - 3rem);
+		position: relative;
+		left: 20rem;
+    }
+
 </style>
